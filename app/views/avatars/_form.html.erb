@@ -4,7 +4,13 @@
              as: :avatarable %>
 
   <%= form_for avatarable, url: avatar_path, multipart: true do |f| %>
+         <span class="btn btn-default fileinput-button edit-avatar">
+        <i class="glyphicon glyphicon-edit"></i>
+        <span>Edit</span>
+
     <%= f.file_field :logo, "data-url" => avatar_path %>
+
+     </span>
   <% end %>
 </div>
 
@@ -15,3 +21,4 @@
     AvatarForRails.edit();
   });
 <% end %>
+

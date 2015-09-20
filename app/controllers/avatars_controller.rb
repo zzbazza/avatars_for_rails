@@ -6,9 +6,10 @@ class AvatarsController < ApplicationController
 
   def update
     if current_avatarable.update_attributes avatarable_params
-      byebug
+    @avatarable=current_avatarable
       respond_to do |format|
         format.html { redirect_to request.referrer || root_path }
+        format.js { render "updated_avatar" }
         format.json { render json: { redirect_path: request.referrer || root_path } }
       end
     elsif current_avatarable.errors[:logo_crop]

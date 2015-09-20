@@ -89,9 +89,9 @@ module AvatarsForRails
     end
 
     def cp_avatar_to_tmp_path
-      FileUtils.cp logo.queued_for_write[:original].path, AvatarsForRails.tmp_path
+      FileUtils.cp logo.queued_for_write[:large].path, AvatarsForRails.tmp_path
 
-      @avatar_tmp_basename = File.basename(logo.queued_for_write[:original].path)
+      @avatar_tmp_basename = File.basename(logo.queued_for_write[:large].path)
 
       FileUtils.chmod(0644, avatar_tmp_full_path)
     end
