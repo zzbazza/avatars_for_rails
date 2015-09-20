@@ -1,10 +1,5 @@
-//= require jquery
-//= require jquery_ujs
-//= require jquery.ui.all
 //= require jquery.Jcrop
 //= require jquery.form
-//= require jquery.fileupload
-// require jquery.fileupload-ui
 //= require flashy
 
 var AvatarForRails = AvatarForRails || (function($, undefined) {
