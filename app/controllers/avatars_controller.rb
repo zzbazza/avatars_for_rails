@@ -6,6 +6,7 @@ class AvatarsController < ApplicationController
 
   def update
     if current_avatarable.update_attributes avatarable_params
+      byebug
       respond_to do |format|
         format.html { redirect_to request.referrer || root_path }
         format.json { render json: { redirect_path: request.referrer || root_path } }
