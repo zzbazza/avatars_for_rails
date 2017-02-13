@@ -1,10 +1,7 @@
 <div class="avatar-current">
   <%= if avatarable.logo.exists?
-  image_tag avatarable.logo.url(:small), class: "avatar"
-  else
-  "<div class='avatar' style='width: 100px; height: 100px; padding-top: 22px;text-align: center; background-color: rgb(200, 200, 200); color: white;font-size:40px;'>#{avatarable.first[0].upcase} #{avatarable.last[0].upcase}</div>".html_safe
-  end
-    %>
+        image_tag avatarable.logo.url(size), class: "avatar avatar-#{size}"
+      else
+        image_tag 'default_avatar.jpg', class: "avatar avatar-#{size}"
+      end %>
 </div>
-
-

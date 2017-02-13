@@ -12,3 +12,4 @@ spec/dummy/public/system/
 Gemfile.lock
 rdoc/*
 **.*swp
+.idea/

@@ -1,24 +1,16 @@
 <div class="avatar-update">
-  <%= render partial: 'avatars/current',
-             object: avatarable,
-             as: :avatarable %>
+  <%= avatar(avatarable, :medium) %>
 
   <%= form_for avatarable, url: avatar_path, multipart: true do |f| %>
-         <span class="btn btn-default fileinput-button edit-avatar">
-        <i class="glyphicon glyphicon-edit"></i>
-        <span>Edit</span>
-
-    <%= f.file_field :logo, "data-url" => avatar_path %>
-
-     </span>
+       <span class="edit-avatar">
+         <%= f.file_field :logo, 'data-url' => avatar_path, accept: 'image/png,image/gif,image/jpeg' %>
+       </span>
   <% end %>
 </div>
 
-<%= render partial: 'avatars/progress' %>
-
 <%= javascript_tag do %>
   $(function() {
-    AvatarForRails.edit();
+  AvatarForRails.edit();
   });
 <% end %>
 

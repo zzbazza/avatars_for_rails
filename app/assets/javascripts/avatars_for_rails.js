@@ -1,6 +1,7 @@
 //= require jquery.Jcrop
 //= require jquery.form
 //= require flashy
+//= require jquery.fileupload
 
 var AvatarForRails = AvatarForRails || (function($, undefined) {
   var editCallbacks = [];
@@ -51,6 +52,8 @@ var AvatarForRails = AvatarForRails || (function($, undefined) {
 
     img = div.find('img.avatar-crop'),
     ar  = parseInt(img.attr('data-aspect_ratio'), 10);
+
+    img.width('100%');
    
     img.Jcrop({
       bgColor:     'clear',

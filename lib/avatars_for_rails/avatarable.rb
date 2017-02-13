@@ -11,6 +11,8 @@ module AvatarsForRails
 
       has_attached_file :logo, avatarable_options
 
+      validates_attachment_content_type :logo, :content_type => ["image/jpg", "image/jpeg", "image/png"]
+
       before_validation :validate_crop_params, :crop_avatar,
                         :check_avatar_aspect_ratio
     end
@@ -89,9 +91,9 @@ module AvatarsForRails
     end
 
     def cp_avatar_to_tmp_path
-      FileUtils.cp logo.queued_for_write[:large].path, AvatarsForRails.tmp_path
+      FileUtils.cp logo.queued_for_write[:original].path, AvatarsForRails.tmp_path
 
-      @avatar_tmp_basename = File.basename(logo.queued_for_write[:large].path)
+      @avatar_tmp_basename = File.basename(logo.queued_for_write[:original].path)
 
       FileUtils.chmod(0644, avatar_tmp_full_path)
     end
