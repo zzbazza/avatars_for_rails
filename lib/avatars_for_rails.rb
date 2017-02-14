@@ -2,7 +2,6 @@ require 'paperclip'
 require 'mini_magick'
 require 'jquery-rails'
 require 'jquery-ui-rails'
-require 'flashy'
 
 module AvatarsForRails
   autoload :ActiveRecord, 'avatars_for_rails/active_record'
