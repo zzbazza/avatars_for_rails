@@ -1,4 +1,4 @@
-<%= image_tag avatarable.avatar.url, class: 'avatar-crop', "data-aspect_ratio" => 1 %>
+<%= avatar(avatarable, class: 'avatar-crop') %>
 
 <%= form_for avatarable, url: avatar_path, multipart: true, remote: true do |f| %>
   <% %w(x y w).each do |attr| %>

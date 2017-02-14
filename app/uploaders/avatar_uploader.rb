@@ -27,6 +27,10 @@ class AvatarUploader < CarrierWave::Uploader::Base
     end
   end
 
+  def store_dir
+    "uploads/avatars/#{model.id}"
+  end
+
   protected
 
   def extension_white_list
