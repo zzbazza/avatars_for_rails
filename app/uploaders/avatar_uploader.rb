@@ -15,9 +15,9 @@ class AvatarUploader < CarrierWave::Uploader::Base
       width  = img.width
       height = img.height
 
-      crop_x = (model.avatar_crop_x * width).round
-      crop_y = (model.avatar_crop_y * height).round
-      crop_w = (model.avatar_crop_w * width).round
+      crop_x = (model.avatar_crop_x.to_f * width).round
+      crop_y = (model.avatar_crop_y.to_f * height).round
+      crop_w = (model.avatar_crop_w.to_f * width).round
       crop_h = crop_w / 1 # Aspect ratio
 
       img.combine_options do |i|
