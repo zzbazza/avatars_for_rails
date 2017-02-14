@@ -20,3 +20,5 @@ module AvatarsForRails
     end
   end
 end
+
+require 'avatars_for_rails/engine'
