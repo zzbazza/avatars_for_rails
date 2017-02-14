@@ -17,30 +17,10 @@ Gem::Specification.new do |s|
   s.rubygems_version = "2.4.7"
   s.summary = "Avatar manager for rails apps"
 
-  if s.respond_to? :specification_version then
-    s.specification_version = 4
-
-    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<jquery-rails>, [">= 3.0.0"])
-      s.add_runtime_dependency(%q<jquery-ui-rails>, [">= 4.0.0"])
-      s.add_runtime_dependency(%q<flashy>, ["~> 0.0.1"])
-      s.add_runtime_dependency(%q<paperclip>, [">= 2.3.4"])
-      s.add_runtime_dependency(%q<rmagick>, [">= 2.13.1"])
-      s.add_development_dependency(%q<rails>, [">= 3.1.0"])
-    else
-      s.add_dependency(%q<jquery-rails>, [">= 3.0.0"])
-      s.add_dependency(%q<jquery-ui-rails>, [">= 4.0.0"])
-      s.add_dependency(%q<flashy>, ["~> 0.0.1"])
-      s.add_dependency(%q<paperclip>, [">= 2.3.4"])
-      s.add_dependency(%q<rmagick>, [">= 2.13.1"])
-      s.add_dependency(%q<rails>, [">= 3.1.0"])
-    end
-  else
-    s.add_dependency(%q<jquery-rails>, [">= 3.0.0"])
-    s.add_dependency(%q<jquery-ui-rails>, [">= 4.0.0"])
-    s.add_dependency(%q<flashy>, ["~> 0.0.1"])
-    s.add_dependency(%q<paperclip>, [">= 2.3.4"])
-    s.add_dependency(%q<rmagick>, [">= 2.13.1"])
-    s.add_dependency(%q<rails>, [">= 3.1.0"])
-  end
+  s.add_runtime_dependency(%q<jquery-rails>, [">= 3.0.0"])
+  s.add_runtime_dependency(%q<jquery-ui-rails>, [">= 4.0.0"])
+  s.add_runtime_dependency(%q<flashy>, ["~> 0.0.1"])
+  s.add_runtime_dependency(%q<paperclip>, [">= 2.3.4"])
+  s.add_runtime_dependency(%q<mini_magick>, [">= 4.6.1"])
+  s.add_development_dependency(%q<rails>, [">= 3.1.0"])
 end

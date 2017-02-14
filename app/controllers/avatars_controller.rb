@@ -1,15 +1,15 @@
 class AvatarsController < ApplicationController
   # Apply the filters configured in avatars_for_rails initializer
   AvatarsForRails.controller_filters.each do |filter|
-    before_filter filter
+    before_action filter
   end
 
   def update
     if current_avatarable.update_attributes avatarable_params
-    @avatarable=current_avatarable
+      @avatarable = current_avatarable
       respond_to do |format|
         format.html { redirect_to request.referrer || root_path }
-        format.js { render "updated_avatar" }
+        format.js { render 'updated_avatar' }
         format.json { render json: { redirect_path: request.referrer || root_path } }
       end
     elsif current_avatarable.errors[:logo_crop]
@@ -19,8 +19,7 @@ class AvatarsController < ApplicationController
     end
   end
 
-  def destroy
-  end
+  def destroy; end
 
   private
 
@@ -29,13 +28,13 @@ class AvatarsController < ApplicationController
   end
 
   def avatarable_params
-    params.
-      require(current_avatarable.class.to_s.underscore).
-      permit(:logo,
-             :logo_crop_x,
-             :logo_crop_y,
-             :logo_crop_w,
-             :logo_crop_h,
-             :avatar_tmp_basename)
+    params
+      .require(current_avatarable.class.to_s.underscore)
+      .permit(:logo,
+              :logo_crop_x,
+              :logo_crop_y,
+              :logo_crop_w,
+              :logo_crop_h,
+              :avatar_tmp_basename)
   end
 end
