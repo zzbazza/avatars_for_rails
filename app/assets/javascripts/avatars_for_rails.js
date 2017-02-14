@@ -10,7 +10,7 @@ var AvatarForRails,
 
 AvatarForRails = (function () {
   function AvatarForRails() {
-    $('input[name*="logo"]').fileupload({
+    $('input[name*="avatar"]').fileupload({
       dataType: 'json',
       uploadTemplateId: null,
       downloadTemplateId: null,
@@ -27,7 +27,7 @@ AvatarForRails = (function () {
     } else if (data.result.crop) {
       initCrop(data.result.crop);
     } else {
-      // Flashy.message('error', data.result.errors);
+      alert(data.result.errors)
     }
   };
 
@@ -44,7 +44,7 @@ AvatarForRails = (function () {
     img.Jcrop({
       bgColor: 'clear',
       bgOpacity: 0.6,
-      setSelect: [0, 0, 200, 200 / ar],
+      setSelect: [0, 0, 100, 100],
       aspectRatio: ar,
       onSelect: updateCrop,
       onChange: updateCrop
@@ -61,11 +61,10 @@ AvatarForRails = (function () {
       coords.y = 0;
     }
 
-    $('input[name*="logo_crop_x"]').val(coords.x / iW);
-    $('input[name*="logo_crop_y"]').val(coords.y / iH);
-    $('input[name*="logo_crop_w"]').val(coords.w / iW);
+    $('input[name*="avatar_crop_x"]').val(coords.x / iW);
+    $('input[name*="avatar_crop_y"]').val(coords.y / iH);
+    $('input[name*="avatar_crop_w"]').val(coords.w / iW);
   };
 
   return AvatarForRails;
-
 })();

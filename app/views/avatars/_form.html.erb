@@ -1,9 +1,9 @@
 <div class="avatar-update">
-  <%= avatar(avatarable, :medium) %>
+  <%= avatar(avatarable) %>
 
   <%= form_for avatarable, url: avatar_path, multipart: true do |f| %>
        <span class="edit-avatar">
-         <%= f.file_field :logo, 'data-url' => avatar_path, accept: 'image/png,image/gif,image/jpeg' %>
+         <%= f.file_field :avatar, 'data-url' => avatar_path, accept: 'image/png,image/gif,image/jpeg' %>
        </span>
   <% end %>
 </div>

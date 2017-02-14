@@ -1,7 +1,3 @@
 <div class="avatar-current">
-  <%= if avatarable.logo.exists?
-        image_tag avatarable.logo.url(size), class: "avatar avatar-#{size}"
-      else
-        image_tag 'default_avatar.jpg', class: "avatar avatar-#{size}"
-      end %>
+  <%= image_tag avatarable.avatar.url(size), class: "avatar avatar-#{size}" %>
 </div>

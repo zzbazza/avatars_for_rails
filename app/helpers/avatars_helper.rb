@@ -1,8 +1,8 @@
 module AvatarsHelper
-  def avatar(object, size)
+  def avatar(object, size = nil)
     render partial: 'avatars/current',
            object:  object,
            as:      :avatarable,
-           locals:  { size: size ? size : :medium }
+           locals:  { size: size }
   end
 end

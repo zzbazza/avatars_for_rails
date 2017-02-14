@@ -5,15 +5,13 @@ class AvatarsController < ApplicationController
   end
 
   def update
+    @avatarable = current_avatarable
     if current_avatarable.update_attributes avatarable_params
-      @avatarable = current_avatarable
+      current_avatarable.avatar.recreate_versions! if current_avatarable.avatar_crop_x.present?
       respond_to do |format|
         format.html { redirect_to request.referrer || root_path }
-        format.js { render 'updated_avatar' }
-        format.json { render json: { redirect_path: request.referrer || root_path } }
+        format.json { render json: { crop: render_to_string(partial: 'crop.html', object: current_avatarable, as: :avatarable) }.to_json }
       end
-    elsif current_avatarable.errors[:logo_crop]
-      render json: { crop: render_to_string(partial: 'crop', object: current_avatarable, as: :avatarable) }.to_json
     else
       render json: current_avatarable.errors.to_json
     end
@@ -30,11 +28,10 @@ class AvatarsController < ApplicationController
   def avatarable_params
     params
       .require(current_avatarable.class.to_s.underscore)
-      .permit(:logo,
-              :logo_crop_x,
-              :logo_crop_y,
-              :logo_crop_w,
-              :logo_crop_h,
-              :avatar_tmp_basename)
+      .permit(:avatar,
+              :avatar_crop_x,
+              :avatar_crop_y,
+              :avatar_crop_w,
+              :avatar_crop_h)
   end
 end
