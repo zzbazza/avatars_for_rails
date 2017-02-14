@@ -21,7 +21,6 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency('jquery-ui-rails', ['>= 4.0.0'])
   s.add_runtime_dependency('jquery-fileupload-rails', ['>= 0.4.7'])
   s.add_runtime_dependency('carrierwave', ['>= 1.0.0'])
-  s.add_runtime_dependency('fog-aws', ['>= 1.2.0'])
   s.add_runtime_dependency('mini_magick', ['>= 4.6.1'])
   s.add_development_dependency('rails', ['>= 3.1.0'])
 end
