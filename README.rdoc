@@ -49,4 +49,4 @@ If you want to get an user's avatar you can do:
   user.avatar
   
 For rendering an image_tag for an user's avatar:
-  <%= image_tag(user.avatar.url ) %>
+  <%= avatar(user, size) %>
