@@ -18,8 +18,7 @@ Gem::Specification.new do |s|
   s.summary = "Avatar manager for rails apps"
 
   s.add_runtime_dependency(%q<jquery-rails>, [">= 3.0.0"])
-  s.add_runtime_dependency(%q<jquery-ui-rails>, [">= 4.0.0"])
-  s.add_runtime_dependency(%q<flashy>, ["~> 0.0.1"])
+  s.add_runtime_dependency(%q<jquery-fileupload-rails>, [">= 0.4.7"])
   s.add_runtime_dependency(%q<paperclip>, [">= 2.3.4"])
   s.add_runtime_dependency(%q<mini_magick>, [">= 4.6.1"])
   s.add_development_dependency(%q<rails>, [">= 3.1.0"])

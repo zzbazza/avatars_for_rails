@@ -1,7 +1,5 @@
 //= require jquery.Jcrop
-//= require jquery.form
-//= require flashy
-//= require jquery.fileupload
+//= require jquery-fileupload/basic
 
 var AvatarForRails,
     bind = function (fn, me) {
@@ -14,7 +12,12 @@ AvatarForRails = (function () {
   function AvatarForRails() {
     $('input[name*="logo"]').fileupload({
       dataType: 'json',
-      done: uploadDone
+      uploadTemplateId: null,
+      downloadTemplateId: null,
+      maxNumberOfFiles: 1,
+      autoUpload: true,
+      done: uploadDone,
+      stop: null
     });
   }
 
@@ -29,7 +32,7 @@ AvatarForRails = (function () {
   };
 
   var initCrop = function (data) {
-    $(".jcrop-box").attr('type', 'button');
+
     var div = $('.avatar-update'), img, ar;
     div.html(data);
 
