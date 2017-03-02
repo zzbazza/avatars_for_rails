@@ -1,9 +1,6 @@
-<%= avatar(avatarable, class: 'avatar-crop') %>
+<%= avatar(avatarable, id: local_assigns[:id] || 'avatar-crop') %>
 
-<%= form_for avatarable, url: avatar_path, multipart: true, remote: true do |f| %>
-  <% %w(x y w).each do |attr| %>
-    <%= f.hidden_field "avatar_crop_#{ attr }" %>
-  <% end %>
-
-  <%= f.submit t('avatar.crop_submit'), class: 'btn btn-default' %>
+<% %w(x y w).each do |attr| %>
+  <%= hidden_field avatarable.class.name.underscore, "avatar_crop_#{ attr }" %>
 <% end %>
+

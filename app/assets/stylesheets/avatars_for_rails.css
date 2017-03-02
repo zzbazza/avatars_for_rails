@@ -45,6 +45,6 @@
   width: 150px;
 }
 
-.avatar-crop {
+#avatar-crop {
   max-width: 450px !important;
 }

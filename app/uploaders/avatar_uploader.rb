@@ -4,7 +4,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
 
   process :crop
 
-  def default_url(*args)
+  def default_url(*_args)
     'default_avatar.jpg'
   end
 

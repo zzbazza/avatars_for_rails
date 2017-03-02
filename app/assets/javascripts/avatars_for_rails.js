@@ -9,34 +9,14 @@ var AvatarForRails,
     };
 
 AvatarForRails = (function () {
-  function AvatarForRails() {
-    $('input[name*="avatar"]').fileupload({
-      dataType: 'json',
-      uploadTemplateId: null,
-      downloadTemplateId: null,
-      maxNumberOfFiles: 1,
-      autoUpload: true,
-      done: uploadDone,
-      stop: null
-    });
+  function AvatarForRails(image) {
+    initCrop(image)
   }
 
-  var uploadDone = function (e, data) {
-    if (data.result.redirect_path) {
-      // window.location = data.result.redirect_path;
-    } else if (data.result.crop) {
-      initCrop(data.result.crop);
-    } else {
-      alert(data.result.errors)
-    }
-  };
+  var initCrop = function (image) {
+    var img, ar;
 
-  var initCrop = function (data) {
-
-    var div = $('.avatar-update'), img, ar;
-    div.html(data);
-
-    img = div.find('img.avatar-crop');
+    img = $(image);
     ar = parseInt(img.attr('data-aspect_ratio'), 10);
 
     img.width('100%');
@@ -46,13 +26,16 @@ AvatarForRails = (function () {
       bgOpacity: 0.6,
       setSelect: [0, 0, 100, 100],
       aspectRatio: ar,
-      onSelect: updateCrop,
-      onChange: updateCrop
+      onSelect: function (coords) {
+        updateCrop(img, coords)
+      },
+      onChange: function (coords) {
+        updateCrop(img, coords)
+      }
     });
   };
 
-  var updateCrop = function (coords) {
-    var img = $('img.avatar-crop');
+  var updateCrop = function (img, coords) {
     var iW = img.width();
     var iH = img.height();
 
