@@ -27,15 +27,19 @@ AvatarForRails = (function () {
       setSelect: [0, 0, 100, 100],
       aspectRatio: ar,
       onSelect: function (coords) {
-        updateCrop(img, coords)
+        updateCrop(img, coords);
       },
       onChange: function (coords) {
-        updateCrop(img, coords)
+        updateCrop(img, coords);
       }
+    }, function () {//fix. prevent submit form
+      $(".jcrop-box").attr('type', 'button');
     });
   };
 
   var updateCrop = function (img, coords) {
+    $(".jcrop-box").attr('type', 'button');
+
     var iW = img.width();
     var iH = img.height();
 

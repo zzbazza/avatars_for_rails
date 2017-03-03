@@ -1,6 +1,5 @@
-<%= avatar(avatarable, id: local_assigns[:id] || 'avatar-crop') %>
+<%= avatar(f.object, size: local_assigns[:size], id: local_assigns[:id] || 'avatar-crop') %>
 
 <% %w(x y w).each do |attr| %>
-  <%= hidden_field avatarable.class.name.underscore, "avatar_crop_#{ attr }" %>
+  <%= f.hidden_field "avatar_crop_#{ attr }" %>
 <% end %>
-

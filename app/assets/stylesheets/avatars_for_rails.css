@@ -4,6 +4,11 @@
 
 /* Rounded avatars */
 
+.jcrop-active {
+  width: auto !important;
+  height: auto !important;
+}
+
 .avatar-tiny {
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;

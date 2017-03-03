@@ -1,8 +1,5 @@
 module AvatarsHelper
   def avatar(object, options = {})
-    render partial: 'avatars/current.html.erb',
-           object:  object,
-           as:      :avatarable,
-           locals:  { options: options }
+    image_tag object.avatar.url(options[:size]), id: options[:id] || 'avatar-crop', class: 'avatar'
   end
 end
